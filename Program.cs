@@ -61,9 +61,9 @@ namespace Connect_four
             {
                 for (int col = 0; col < Cols - 3; col++)
                 {
-                    if (grid[row, col] == piece &&
-                        grid[row, col + 1] == piece &&
-                        grid[row, col + 2] == piece)
+                    if (grid[row, col + 1] == piece &&
+                        grid[row, col + 2] == piece &&
+                        grid[row, col + 3] == piece)
                     {
                         return true;
                     }
@@ -90,9 +90,9 @@ namespace Connect_four
             {
                 for (int col = 0; col < Cols - 3; col++)
                 {
-                    if (grid[row, col] == piece &&
-                      grid[row + 1, col + 1] == piece &&
-                      grid[row + 2, col + 2] == piece)
+                    if (grid[row, col + 1] == piece &&
+                      grid[row + 1, col + 2] == piece &&
+                      grid[row + 2, col + 3] == piece)
                     {
                         return true;
                     }
@@ -104,9 +104,9 @@ namespace Connect_four
             {
                 for (int col = 3; col < Cols; col++)
                 {
-                    if (grid[row, col] == piece &&
-                      grid[row + 1, col - 1] == piece &&
-                      grid[row + 2, col - 2] == piece)
+                    if (grid[row, col - 1] == piece &&
+                      grid[row + 1, col - 2] == piece &&
+                      grid[row + 2, col - 3] == piece)
                     {
                         return true;
                     }
