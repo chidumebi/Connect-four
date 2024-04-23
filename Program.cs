@@ -39,20 +39,7 @@ namespace Connect_four
 
         public bool PlacePiece(int col, char piece)
         {
-            // Check if the column index is valid
-            if (col < 0 || col >= Cols)
-            {
-                Console.WriteLine("Invalid column index.");
-                return false;
-            }
-
-            // Check if the column is full
-            if (grid[0, col] != ' ')
-            {
-                Console.WriteLine("Column is full. Please choose another column.");
-                return false;
-            }
-
+            
             // Place a piece on the board
             for (int row = Rows - 1; row >= 0; row--)
             {
@@ -63,7 +50,7 @@ namespace Connect_four
                 }
             }
 
-            return false; // This should not be reached under normal circumstances
+            return false; 
         }
 
         // Adding methods for checking win and full board
@@ -180,7 +167,20 @@ namespace Connect_four
             {
                 board.Display();
                 Console.WriteLine($"{currentPlayer.Name}'s turn ({currentPlayer.Piece}):");
-                int col = int.Parse(Console.ReadLine()) - 1; // Subtract 1 to make it 0-based
+                Console.WriteLine("Enter the column number (1-7):");
+                int col;
+                while (true)
+                {
+                    if (int.TryParse(Console.ReadLine(), out col) && col >= 1 && col <= 7)
+                    {
+                        col--; 
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number between 1 and 7.");
+                    }
+                }
                 if (board.PlacePiece(col, currentPlayer.Piece))
                 {
 
@@ -203,10 +203,10 @@ namespace Connect_four
 
                     currentPlayer = (currentPlayer == player1) ? player2 : player1;
                 }
-                else
+                /*else
                 {
                     Console.WriteLine("Column is full. Please choose another column.");
-                }
+                }*/
             }
         }
     }
