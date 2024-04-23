@@ -154,8 +154,8 @@ namespace Connect_four
 
         public Connect4Game(string player1Name, string player2Name)
         {
-            player1 = new Player(player1Name, '1');
-            player2 = new Player(player2Name, '0');
+            player1 = new Player(player1Name, 'X');
+            player2 = new Player(player2Name, 'O');
             currentPlayer = player1;
         }
 
